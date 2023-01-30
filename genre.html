@@ -1,0 +1,803 @@
+<style>
+    * {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial;
+}
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+.row {
+  border-radius:20px;
+  margin: 8px -16px;
+  
+  
+}
+.row,
+.row > .column {
+  padding: 8px;
+}
+.column {
+  float: left;
+  width: 20%;
+  display: none; 
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  width:20px ;
+}
+.content {
+  background-color: white;
+  padding: 10px;
+}
+.show {
+  display: block;
+}
+.btn {
+  border:5;
+  outline:0;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: white;
+}
+.btn.active {
+  background-color: #666;
+   color: white;
+}
+.zoom {
+  transition: 0.3s
+}
+.zoom:hover {
+  transform: translate(0,-13px);}
+  .button {
+  border-radius: 2px;
+  background-color:#181717;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 14px;
+  padding: 7px;
+  width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  height: 6%;
+}
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+a{
+  color: red;
+  text-decoration: none;
+}
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.button:hover span {
+  padding-right: 25px;
+}
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.container {
+  margin-top: 20px;
+  overflow: hidden;
+  
+}
+.filterDiv {
+  float: left;
+  background-color: #2196F3;
+  color: #ffffff;
+  width: 100px;
+  line-height: 100px;
+  text-align: center;
+  margin: 2px;
+  display: none;
+}
+
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+body{
+	background-image: url("https://www.enpiem.co.uk/wp-content/uploads/2019/09/cropped-enpiem_header.jpg");
+	background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+</style>
+<body>
+    <div id="myBtnContainer">
+        <button class="btn active" onclick="filterSelection('all')"> SHOW ALL</button>
+        <button class="btn" onclick="filterSelection('now trending')"> NOW TRENDING</button>
+        <button class="btn" onclick="filterSelection('top selling')">TOP SELLING </button>
+        <button class="btn" onclick="filterSelection('made for u')">MADE FOR YOU </button>
+        <button class="btn" onclick="filterSelection('biographies')">BIOGRAPHIES</button>
+        <button class="btn" onclick="filterSelection('fantasy')">FANTASY</button>
+        <button class="btn" onclick="filterSelection('psy thriller')">PSYCHOLOGICAL</button>
+        <button class="btn" onclick="filterSelection('romcom')">ROMCOM</button>
+        <button class="btn" onclick="filterSelection('horror')">HORROR</button>
+      </div>
+
+
+
+      <div class="row">
+        <div class="column now trending">
+          <div class="content">
+              <div class="zoom">
+                  <img src="images/trend/death leaves.jpg" alt="Mountains" style="width:100%; border: 5px solid black; height:56% ;">
+            <p>Rs.550</p>
+          </div>
+            <button class="button"><span><a href="/billing">Buy to read</span></a></button>
+          </div>
+        </div>
+        <div class="column now trending">
+          <div class="content">
+              <div class="zoom"><img src="images/trend/red queen.jpg" alt="Lights" style="width:100%; border: 5px solid black;height:56%">
+  
+            <p>Rs.427</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</span></a></button>
+          </div>
+        </div>
+        <div class="column now trending">
+          <div class="content">
+              <div class="zoom"><img src="images/trend/immoral origins.jpg" alt="Nature" style="width:100%; border: 5px solid black;height:56%">
+           
+            <p>Rs.999</p></div>
+            <button class="button"><span><a href="/billing" >Buy to read</span></a></button>
+          </div>
+        </div>
+        <div class="column now trending ">
+          <div class="content">
+              <div class="zoom"><img src="images/trend/gone girl.jpg" alt="Lights" style="width:100%; border: 5px solid black;height:56%">
+            
+            <p>Rs.650</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</span></a></button>
+          </div>
+        </div>
+        <div class="column now trending ">
+          <div class="content">
+              <div class="zoom"><img src="images/trend/problems at the pub.jpg" alt="Lights" style="width:100%; border: 5px solid black;height:56%">
+            <p>Rs.1149</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</span></a></button>
+          </div>
+        </div>
+      </div>
+    
+        <div class="row">
+        <div class="column top selling">
+          <div class="content">
+              <div class="zoom"><img src="images/lotr.jpg" alt="Lights" style="width:100%; border: 5px solid black;height:56%">
+           
+            <p>Rs.390</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</span></a></button>
+          </div>
+        </div>
+        <div class="column top selling">
+          <div class="content">
+              <div class="zoom"><img src="images/top selling/city of bones.jpg" alt="Lights" style="width:100%; border: 5px solid black;height:56%">
+            
+            <p>Rs.699</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</span></a></button>
+          </div>
+        </div>
+        <div class="column top selling">
+          <div class="content">
+              <div class="zoom"><img src="images/top selling/red chamber.jpg" alt="Lights" style="width:100%; border: 5px solid black;height:56%">
+            
+            <p>Rs.549</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</span></a></button>
+          </div>
+        </div>
+        <div class="column top selling">
+          <div class="content">
+              <div class="zoom"><img src="images/top selling/davinci code.jpg" alt="Lights" style="width:100%; border: 5px solid black;height:56%">
+           
+            <p>Rs.749</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</span></a></button>
+          </div>
+        </div>
+        <div class="column top selling">
+          <div class="content">
+              <div class="zoom"><img src="images/top selling/Twilight.jpg" alt="Lights" style="width:100%; border: 5px solid black;height:56%">
+           
+            <p>Rs.490</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</span></a></button>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="column made for u">
+          <div class="content">
+              <div class="zoom"><img src="images/made for you/alone.jpg" alt="Car" style="width:100%; border: 5px solid black;height:56%">
+          
+            <p>Rs.1300</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+        <div class="column made for u">
+          <div class="content">
+              <div class="zoom"><img src="images/made for you/the girl in the headlines.jpg" alt="Car" style="width:100%; border: 5px solid black;height:56%">
+            
+            <p>Rs.2990</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+        <div class="column made for u">
+          <div class="content">
+              <div class="zoom"><img src="images/made for you/girl last seen.jpg" alt="Car" style="width:100%; border: 5px solid black;height:56%">
+          
+            <p>Rs.1799</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+        <div class="column made for u">
+          <div class="content">
+              <div class="zoom"><img src="images/made for you/the book of two ways.jpg" alt="Car" style="width:100%; border: 5px solid black;height:56%">
+           
+            <p>Rs.1399</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+        <div class="column made for u">
+          <div class="content">
+              <div class="zoom"><img src="images/made for you/the overnight guest.jpg" alt="Car" style="width:100%; border: 5px solid black;height:56%">
+           
+            <p>Rs.1299</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="column made for u">
+          <div class="content">
+              <div class="zoom"><img src="images/made for you/champion.jpg" alt="Car" style="width:100%; border: 5px solid black;height:56%">
+           
+            <p>Rs.1399</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+        <div class="column made for u">
+          <div class="content">
+              <div class="zoom"><img src="images/made for you/follow your heart.jpg" alt="Car" style="width:100%; border: 5px solid black;height:56%">
+           
+            <p>Rs.1399</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+        <div class="column made for u">
+          <div class="content">
+              <div class="zoom"><img src="images/made for you/tempted.jpg" alt="Car" style="width:100%; border: 5px solid black;height:56%">
+           
+            <p>Rs.1399</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+        <div class="column made for u">
+          <div class="content">
+              <div class="zoom"><img src="images/made for you/hunted.jpg" alt="Car" style="width:100%; border: 5px solid black;height:56%">
+           
+            <p>Rs.1399</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+        <div class="column made for u">
+          <div class="content">
+              <div class="zoom"><img src="images/made for you/rage of angels.jpg" alt="Car" style="width:100%; border: 5px solid black;height:56%">
+           
+            <p>Rs.1399</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column made for u">
+          <div class="content">
+              <div class="zoom"><img src="images/made for you/catching fire.jpg" alt="Car" style="width:100%; border: 5px solid black;height:56%">
+           
+            <p>Rs.1399</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+        <div class="column made for u">
+          <div class="content">
+              <div class="zoom"><img src="images/made for you/the maze runner.jpg" alt="Car" style="width:100%; border: 5px solid black;height:56%">
+           
+            <p>Rs.1399</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+        <div class="column made for u">
+          <div class="content">
+              <div class="zoom"><img src="images/made for you/betrayed.jpg" alt="Car" style="width:100%; border: 5px solid black;height:56%">
+           
+            <p>Rs.1399</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+        <div class="column made for u">
+          <div class="content">
+              <div class="zoom"><img src="images/made for you/the horse whisperer.jpg" alt="Car" style="width:100%; border: 5px solid black;height:56%">
+           
+            <p>Rs.1399</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+        <div class="column made for u">
+          <div class="content">
+              <div class="zoom"><img src="images/made for you/the grapes of wrath.jpg" alt="Car" style="width:100%; border: 5px solid black;height:56%">
+           
+            <p>Rs.1399</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+      </div>
+
+        
+          <div class="row">
+          <div class=" column biographies">
+          <div class="content">
+              <div class="zoom"><img src="images/biographies/roosevelt.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+            
+            <p>Rs.1199</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+        
+        <div class=" column biographies">
+          <div class="content">
+              <div class="zoom"><img src="images/biographies/elon musk.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+            
+            <p>Rs.1299</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+        
+        <div class="column biographies">
+          <div class="content">
+              <div class="zoom"><img src="images/biographies/elizabeth queen.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+           
+            <p>Rs.199</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+        <div class="column biographies">
+            <div class="content">
+                <div class="zoom"><img src="images/biographies/truman.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+             
+              <p>Rs.850</p></div>
+              <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+            </div>
+          </div>
+        
+        <div class="column biographies">
+          <div class="content">
+              <div class="zoom"><img src="images/biographies/gandhi.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+           
+            <p>Rs.1099</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+        </div>
+        <div class="row">
+        <div class="column biographies">
+            <div class="content">
+                <div class="zoom"><img src="images/biographies/yeager.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+              
+              <p>Rs.850</p></div>
+              <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+            </div>
+          </div>
+        
+        <div class="column biographies">
+          <div class="content">
+              <div class="zoom"><img src="images/biographies/hellen keller.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+            
+            <p>Rs.178</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+        
+        <div class="column biographies">
+          <div class="content">
+              <div class="zoom"><img src="images/biographies/sachin.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+            
+            <p>Rs.2289</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+        
+        <div class="column biographies">
+          <div class="content">
+              <div class="zoom"><img src="images/biographies/swami.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+           
+            <p>Rs.999</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+      
+        <div class="column biographies">
+          <div class="content">
+              <div class="zoom"><img src="images/biographies/test of my life.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+            
+            <p>Rs.999</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+      
+        <div class="column biographies">
+          <div class="content">
+              <div class="zoom"><img src="images/biographies/steve jobs.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+            
+            <p>Rs.1999</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+        <div class="column biographies">
+          <div class="content">
+              <div class="zoom"><img src="images/biographies/teacher man.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+            
+            <p>Rs.1299</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+        <div class="column biographies">
+          <div class="content">
+              <div class="zoom"><img src="images/biographies/transforming dreams.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+           
+            <p>Rs.12999</p></div>
+            <button class="button"><span></span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+        <div class="column biographies">
+          <div class="content">
+              <div class="zoom"><img src="images/biographies/wings of fire.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+            
+            <p>Rs.850</p></div>
+            <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+          </div>
+        </div>
+        <div class="column biographies">
+            <div class="content">
+                <div class="zoom"><img src="images/biographies/my life and hard times.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+              
+              <p>Rs.890</p></div>
+              <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+            </div>
+          </div>
+        </div>
+
+
+
+          <div class="row">
+            <div class="column psy thriller">
+              <div class="content">
+                  <div class="zoom"><img src="images/psychological/imposter.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                
+                <p>Rs.890</p></div>
+                <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+              </div></div>
+              <div class="column psy thriller">
+                <div class="content">
+                    <div class="zoom"><img src="images/psychological/a familiar stranger.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                  
+                  <p>Rs.890</p></div>
+                  <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                </div> </div>
+                <div class="column psy thriller">
+                  <div class="content">
+                      <div class="zoom"><img src="images/psychological/the housemaid.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                    
+                    <p>Rs.890</p></div>
+                    <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                  </div>
+                </div>
+                
+                  <div class="column psy thriller">
+                    <div class="content">
+                        <div class="zoom"><img src="images/psychological/the silent woman.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                      
+                      <p>Rs.890</p></div>
+                      <button class="button"><a href="/billing">Buy to read</a></span></button>
+                    </div>
+                  </div>
+                     <div class="column psy thriller">
+                      <div class="content">
+                          <div class="zoom"><img src="images/psychological/the butcher.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                        
+                        <p>Rs.890</p></div>
+                        <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                      </div>
+                    </div> 
+
+                    <div class="row">
+                      <div class="column psy thriller">
+                        <div class="content">
+                            <div class="zoom"><img src="images/psychological/cupid poison arrow.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div> 
+                      <div class="column psy thriller">
+                        <div class="content">
+                            <div class="zoom"><img src="images/psychological/caged.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div> 
+                      <div class="column psy thriller">
+                        <div class="content">
+                            <div class="zoom"><img src="images/psychological/dont close ur eyes.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div> 
+                      <div class="column psy thriller">
+                        <div class="content">
+                            <div class="zoom"><img src="images/psychological/human cruelty.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div> 
+                      <div class="column psy thriller">
+                        <div class="content">
+                            <div class="zoom"><img src="images/psychological/eyes of the predator.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div> 
+                    </div>
+
+                    <div class="row">
+                      <div class="column psy thriller">
+                        <div class="content">
+                            <div class="zoom"><img src="images/psychological/mad dog house.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div> 
+                      <div class="column psy thriller">
+                        <div class="content">
+                            <div class="zoom"><img src="images/psychological/murder red ink.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div> 
+                      <div class="column psy thriller">
+                        <div class="content">
+                            <div class="zoom"><img src="images/psychological/no longer safe.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div> 
+                      <div class="column psy thriller">
+                        <div class="content">
+                            <div class="zoom"><img src="images/psychological/murder most immoral.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div> 
+                      <div class="column psy thriller">
+                        <div class="content">
+                            <div class="zoom"><img src="images/psychological/none shall sleep.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div> 
+                    </div>
+
+
+                    <div class="row">
+                      <div class="column fantasy">
+                        <div class="content">
+                            <div class="zoom"><img src="images/fantasy/alice in wonderland.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div> 
+                      <div class="column fantasy">
+                        <div class="content">
+                            <div class="zoom"><img src="images/fantasy/gunslinger.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div> 
+                      <div class="column fantasy">
+                        <div class="content">
+                            <div class="zoom"><img src="images/fantasy/a clash of kings.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div>
+                      <div class="column fantasy">
+                        <div class="content">
+                            <div class="zoom"><img src="images/fantasy/chronicles of narnia.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div>
+                      <div class="column fantasy">
+                        <div class="content">
+                            <div class="zoom"><img src="images/fantasy/american gods.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span> <a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div class="row">
+                      <div class="column fantasy">
+                        <div class="content">
+                            <div class="zoom"><img src="images/fantasy/sorceror stone.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div>
+                      <div class="column fantasy">
+                        <div class="content">
+                            <div class="zoom"><img src="images/fantasy/chamber of secrets.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div>
+                      <div class="column fantasy">
+                        <div class="content">
+                            <div class="zoom"><img src="images/fantasy/prisoner of azkaban.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div>
+                      <div class="column fantasy">
+                        <div class="content">
+                            <div class="zoom"><img src="images/fantasy/goblet of fire.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div>
+                      <div class="column fantasy">
+                        <div class="content">
+                            <div class="zoom"><img src="images/fantasy/half blood prince.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="column fantasy">
+                        <div class="content">
+                            <div class="zoom"><img src="images/fantasy/deathly hollows.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div>
+                      <div class="column fantasy">
+                        <div class="content">
+                            <div class="zoom"><img src="images/fantasy/game of thrones.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div>
+                      <div class="column fantasy">
+                        <div class="content">
+                            <div class="zoom"><img src="images/fantasy/fellowship of ring.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div>
+                      <div class="column fantasy">
+                        <div class="content">
+                            <div class="zoom"><img src="images/fantasy/the two towers.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div>
+                      <div class="column fantasy">
+                        <div class="content">
+                            <div class="zoom"><img src="images/fantasy/return of the king.jpg" alt="People" style="width:100%; border: 5px solid black;height:56%">
+                          
+                          <p>Rs.890</p></div>
+                          <button class="button"><span><a href="/billing">Buy to read</a></span></button>
+                        </div>
+                      </div>
+
+
+                    </div>
+                  </div> 
+      
+      <script>
+        filterSelection("all") 
+    function filterSelection(c) {
+      var x, i;
+      x = document.getElementsByClassName("column");
+      if (c == "all") c = "";
+      for (i = 0; i < x.length; i++) {
+        w3RemoveClass(x[i], "show");
+        if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+      }
+    }
+    function w3AddClass(element, name) {
+      var i, arr1, arr2;
+      arr1 = element.className.split(" ");
+      arr2 = name.split(" ");
+      for (i = 0; i < arr2.length; i++) {
+        if (arr1.indexOf(arr2[i]) == -1) {
+          element.className += " " + arr2[i];
+        }
+      }
+    }
+    function w3RemoveClass(element, name) {
+      var i, arr1, arr2;
+      arr1 = element.className.split(" ");
+      arr2 = name.split(" ");
+      for (i = 0; i < arr2.length; i++) {
+        while (arr1.indexOf(arr2[i]) > -1) {
+          arr1.splice(arr1.indexOf(arr2[i]), 1);
+        }
+      }
+      element.className = arr1.join(" ");
+    }
+    var btnContainer = document.getElementById("myBtnContainer");
+    var btns = btnContainer.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function(){
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+      });
+    }
+    </script>
+    
+</body>
